@@ -22,6 +22,10 @@ resource "random_pet" "this" {
   length = 2
 }
 
+administrator_login          = "missadministrator"
+administrator_login_password = "AdminPassword123!"
+
+
 resource "aws_kms_key" "objects" {
   description             = "KMS key is used to encrypt bucket objects"
   deletion_window_in_days = 7
