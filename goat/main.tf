@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "data" {
     git_last_modified_by = "nimrod@bridgecrew.io"
     git_modifiers        = "34870196+LironElbaz/nimrod/nimrodkor"
     git_org              = "bridgecrewio"
-    git_repo             = "terragoat"
+    git_repo             = "joesgoat2"
     yor_trace            = "0874007d-903a-4b4c-945f-c9c233e13243"
   })
 }
