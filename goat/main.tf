@@ -121,6 +121,9 @@ resource "aws_s3_bucket" "data_science" {
     yor_trace            = "9a7c8788-5655-4708-bbc3-64ead9847f64"
   }
 }
+administrator_login          = "missadministrator"
+administrator_login_password = "AdminPassword123!"
+
 
 resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
