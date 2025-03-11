@@ -18,6 +18,28 @@ resource "aws_s3_bucket" "example" {
   force_destroy = "false"           # Will prevent destruction of bucket with contents inside
 }
 
+
+resource "aws_s3_bucket_versioning" "example" {
+  bucket = aws_s3_bucket.example.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+
+resource "aws_s3_bucket" "example_log_bucket" {
+  bucket = "example-log-bucket"
+}
+
+resource "aws_s3_bucket_logging" "example" {
+  bucket = aws_s3_bucket.example.id
+
+  target_bucket = aws_s3_bucket.example_log_bucket.id
+  target_prefix = "log/"
+}
+
 resource "aws_s3_bucket_object" "object2" {
   for_each = fileset("myfiles/", "*")
   bucket   = aws_s3_bucket.example.bucket
