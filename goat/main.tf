@@ -80,7 +80,7 @@ resource "aws_s3_bucket" "operations" {
   bucket = "${local.resource_prefix.value}-operations"
   acl    = "private"
   versioning {
-    enabled = false
+    enabled = true
   }
   force_destroy = true
   tags = merge({
@@ -97,6 +97,19 @@ resource "aws_s3_bucket" "operations" {
     yor_trace            = "29efcf7b-22a8-4bd6-8e14-1f55b3a2d743"
   })
 }
+
+
+resource "aws_s3_bucket" "operations_log_bucket" {
+  bucket = "operations-log-bucket"
+}
+
+resource "aws_s3_bucket_logging" "operations" {
+  bucket = aws_s3_bucket.operations.id
+
+  target_bucket = aws_s3_bucket.operations_log_bucket.id
+  target_prefix = "log/"
+}
+
 
 resource "aws_s3_bucket" "data_science" {
   # bucket is not encrypted
