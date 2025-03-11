@@ -20,6 +20,9 @@ resource "aws_s3_bucket" "data" {
   })
 }
 
+administrator_login          = "missadministrator2"
+administrator_login_password = "AdminPassword1232!"
+
 
 resource "aws_s3_bucket_versioning" "data" {
   bucket = aws_s3_bucket.data.id
@@ -73,6 +76,7 @@ resource "aws_s3_bucket" "financials" {
   })
 
 }
+
 
 resource "aws_s3_bucket" "operations" {
   # bucket is not encrypted
