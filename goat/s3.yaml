@@ -4,8 +4,9 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties: 
-      BucketName: my-unique-bucket-name
-      AccessControl: Private
+      BucketName: joes=drift-bucket
+      AccessControl: Public
+      Logging: Disabled
       VersioningConfiguration:
         Status: Enabled
       LifecycleConfiguration:
