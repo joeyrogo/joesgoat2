@@ -13,6 +13,10 @@ locals {
 }
 
 
+administrator_login          = "missadministrator2"
+administrator_login_password = "AdminPassword123222222!"
+
+
 
 data "aws_caller_identity" "current" {}
 
